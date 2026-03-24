@@ -4,6 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Wi-Fi Visitantes</title>
+
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -32,11 +33,13 @@
     h1 {
       margin-top: 0;
       font-size: 24px;
+      text-align: center;
     }
 
     p {
       color: #444;
       font-size: 14px;
+      text-align: center;
     }
 
     label {
@@ -62,6 +65,15 @@
       color: #333;
     }
 
+    .terms a {
+      color: #2563eb;
+      text-decoration: none;
+    }
+
+    .terms a:hover {
+      text-decoration: underline;
+    }
+
     .btn {
       width: 100%;
       margin-top: 18px;
@@ -77,24 +89,55 @@
       color: white;
     }
 
+    .btn-primary:hover {
+      background: #1f2937;
+    }
+
+    .link-politica {
+      display: block;
+      text-align: center;
+      margin-top: 12px;
+      font-size: 13px;
+      color: #111827;
+      text-decoration: none;
+    }
+
+    .link-politica:hover {
+      text-decoration: underline;
+    }
+
     .small {
       margin-top: 16px;
       font-size: 12px;
       color: #666;
       word-break: break-word;
+      text-align: center;
+    }
+
+    .logo {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    .logo img {
+      max-width: 160px;
     }
   </style>
 </head>
+
 <body>
   <div class="wrap">
     <div class="card">
-    <div style="text-align: center; margin-bottom: 20px;">
-    <img src="/logo.png" alt="Logo Empresa" style="max-width: 160px;">
-  </div>
+
+      <div class="logo">
+        <img src="/logo.png" alt="Logo Empresa">
+      </div>
+
       <h1>Bem-vindo ao Wi-Fi Visitantes</h1>
       <p>Para acessar a internet, informe seus dados e aceite os termos de uso.</p>
 
       <form action="/login" method="POST">
+
         <label for="nome">Nome completo</label>
         <input type="text" id="nome" name="nome" required minlength="3" />
 
@@ -111,11 +154,18 @@
         <div class="terms">
           <label>
             <input type="checkbox" name="aceite" required />
-            Declaro que li e aceito os termos de uso e a política de tratamento de dados para controle de acesso à rede visitante.
+            Declaro que li e aceito os 
+            <a href="/politica.html" target="_blank">termos de uso</a> e a 
+            <a href="/politica.html" target="_blank">política de tratamento de dados</a>.
           </label>
         </div>
 
         <button type="submit" class="btn btn-primary">Conectar</button>
+
+        <a href="/politica.html" target="_blank" class="link-politica">
+          Ver política completa
+        </a>
+
       </form>
 
       <div class="small">
@@ -123,6 +173,7 @@
         MAC: {{MAC}}<br />
         IP: {{IP}}
       </div>
+
     </div>
   </div>
 
@@ -144,5 +195,6 @@
       e.target.value = value;
     });
   </script>
+
 </body>
 </html>
